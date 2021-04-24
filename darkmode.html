@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<style>
+  .center {
+    text-align: center;
+    margin-top: 200px;
+  }
+
+
+  /* dark mode css*/
+
+  body {
+    --text-color: #222;
+    --bkg-color: #fff;
+
+  }
+
+  body.dark-theme {
+    --text-color: #eee;
+    --bkg-color: #121212;
+
+  }
+
+  /* dark mode css*/
+
+
+
+
+  @media (prefers-color-scheme: dark) {
+
+    /* defaults to dark theme */
+    body {
+      --text-color: #eee;
+      --bkg-color: #121212;
+    }
+
+    body.light-theme {
+      --text-color: #222;
+      --bkg-color: #fff;}
+
+
+* {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--bkg-color);
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    h1,
+    p {
+      color: var(--text-color);
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+  }
+
+
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    box-shadow:
+      -8px -4px 8px 0px #222222,
+      8px 4px 12px 0px #000000,
+      4px 4px 4px 0px #000000 inset,
+      -4px -4px 4px 0px #333333 inset;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #222222;
+    box-shadow:
+      -8px -4px 8px 0px #222222,
+      8px 4px 12px 0px #000000,
+      4px 4px 4px 0px #000000 inset,
+      -4px -4px 4px 0px #333333 inset;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+      background-color: #ffffff;
+
+      box-shadow:
+        -8px -4px 8px 0px #cccccc,
+        8px 4px 12px 0px #ffffff,
+        4px 4px 4px 0px #ffffff inset,
+        -4px -4px 4px 0px #cccccc inset;
+  }
+
+  input:focus + .slider {
+
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    box-shadow:
+      -8px -4px 8px 0px #eeeeee,
+      8px 4px 12px 0px #eeeeee;
+        background-color: #ffffff;
+        box-shadow:
+          -8px -4px 8px 0px #cccccc,
+          8px 4px 12px 0px #ffffff,
+          4px 4px 4px 0px #ffffff inset,
+          -4px -4px 4px 0px #cccccc inset;
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+</style>
+
+
+
+
+<body>
+
+
+  <h1 style="text-align: center; padding: 100px;">HELLO</h1>
+  <p style="text-align: center; padding: 100px;">hello hello hello </p>
+
+  <div class="center">
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round btn-toggle"></span>
+    </label>
+  </div>
+
+
+
+
+
+  <script>
+    const btn = document.querySelector(".slider");
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    btn.addEventListener("click", function() {
+      if (prefersDarkScheme.matches) {
+        document.body.classList.toggle("light-theme");
+      } else {
+        document.body.classList.toggle("dark-theme");
+      }
+    });
+  </script>
+
+
+
+</body>
+
+</html>
